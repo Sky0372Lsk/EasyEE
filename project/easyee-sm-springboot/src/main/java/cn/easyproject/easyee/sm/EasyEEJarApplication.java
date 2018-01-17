@@ -29,7 +29,7 @@ import org.springframework.transaction.annotation.EnableTransactionManagement;
 	// Redis Sentinel
 //	"classpath*:/redis/redis_sentinel.xml",
 	/*Shiro*/
-	// EhCache
+	// EhCache˙
 	"classpath*:/shiro/shiro_ehcache.xml"
 	// Redis
 //	"classpath*:/shiro/shiro_redis.xml"

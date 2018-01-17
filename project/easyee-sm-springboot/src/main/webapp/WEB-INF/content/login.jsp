@@ -1,3 +1,4 @@
+
 <%@page import="org.apache.shiro.SecurityUtils"%>
 <%@page import="org.apache.shiro.authc.AuthenticationException"%>
 <%@ page language="java" import="java.util.*" pageEncoding="UTF-8"%>
@@ -223,7 +224,7 @@ if(exceptionClassName!=null){
 		</div>
 		<div class="footer">
 			<p>
-				© 2012 - 2099 Ray <a href="http://easyproject.cn/"
+				© 2012 - 2018 Ray <a href="http://easyproject.cn/"˙
 					style="color: #8EBB31;font-weight: bold;text-decoration: underline;">EasyProject</a>
 
 			</p>

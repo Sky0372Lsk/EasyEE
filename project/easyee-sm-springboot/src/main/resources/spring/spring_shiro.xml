@@ -217,7 +217,7 @@
 		<!-- 将消息存入request，request.setAttribute(MsgKey,xxxErrorMsg); default is 'false' -->
 		<property name="requestMsg" value="true"></property>
 		<!-- 认证失败提示内容;  default is 'Permission denied!' -->
-		<property name="permissionDeniedMsg" value="您没有权限"></property>
+		<property name="permissionDeniedMsg" value="您没有权限1"></property>
 		<!-- 登录超时提示内容; default is 'Your login has expired, please login again!' -->
 		<property name="authenticationTimeoutMsg" value="您的登录已过期，请重新登录！"></property>
 	</bean>

@@ -16,7 +16,7 @@ import cn.easyproject.easyee.sm.hr.service.DeptService;
 
 /**
  * 业务实现类统一继承 BaseService 类
- * 
+ *
  * @author easyproject.cn
  * @version 1.0
  *
@@ -26,7 +26,7 @@ public class DeptServiceImpl extends BaseService implements DeptService {
 
 	@Resource
 	DeptDAO deptDAO;
-	
+
 	@Override
 	public void save(Dept dept) {
 		deptDAO.save(dept);

@@ -40,22 +40,22 @@
 		 * 搜索
 		 */
 		/*
-		 * sysUser.doSearch = function() { $("#sysUserDataGrid").edatagrid("load", {
+		 * sysUser.doSearch = function() { $("#sysBuildingDataGrid").edatagrid("load", {
 		 * name : $("#name3").val(), sex : $("#sex3").combobox("getValue") }); }
 		 */
 		/*
 		 * 数据表格初始化
 		 */
-		var dg = $("#sysUserDataGrid");
+		var dg = $("#sysBuildingDataGrid");
 		dg.initDatagrid({
 			iconCls : 'icon-group',
 			/*
 			 * 行编辑:saveUrl、updateUrl、destroyUrl配合uiEx使用
 			 */
-			url : "SysUser/list",
-			saveUrl : "SysUser/save",
-			updateUrl : "SysUser/update",
-			destroyUrl : "SysUser/delete",
+			url : "SysBuilding/list",
+			saveUrl : "SysBuilding/save",
+			updateUrl : "SysBuilding/update",
+			destroyUrl : "SysBuilding/delete",
 			showHeaderContextMenu:true, // 表头添加右键菜单，可选择显示的列
 			// clickRowEdit:true, //注册单击行编辑，可以代替edatagrid实现带行编辑的CRUD
 			pageSize : 10,
@@ -103,7 +103,7 @@
 		}
 		//点击按钮修改
 		sysUser.toEdit = function() {
-			var row = $("#sysUserDataGrid").datagrid('getSelected');
+			var row = $("#sysBuildingDataGrid").datagrid('getSelected');
 			if (row) {
 				toEdit(row);
 			} else {
@@ -147,7 +147,7 @@
 		sysUser.toDelete = function() {
 			//datagridSelector,  showMsg, reloadDataGrid, successKey, successValue
 			
-			var rows = $("#sysUserDataGrid").datagrid('getSelections');
+			var rows = $("#sysBuildingDataGrid").datagrid('getSelections');
 			if (rows) {
 			    dg.rowDelete(true, false, "statusCode", "200");
 			/* 	var ids = "";
@@ -169,8 +169,8 @@
 		//搜索
 		sysUser.doSearch = function() {
 			dg.datagrid("load", {
-				'name' : $("#sysUserName").val(),
-				'realName' : $("#sysRealName").val(),
+				'name' : $("#num").val(),
+				'realName' : $("#location").val(),
 				'status' : $("#sysUserStatus").combobox("getValue")
 			});
 		}
@@ -178,49 +178,40 @@
 	});
 </script>
 <%-- 2. 页面内容 --%>
-<table id="sysUserDataGrid" title="用户列表" style=""
+<table id="sysBuildingDataGrid" title="楼宇列表" style=""
 	toolbar="#sysUserToolbar" idField="userId" rownumbers="true" fit="true" fitColumns="true" nowrap="false" fit="true" >
 	<thead>
 		<tr>
 			<th field="ck" checkbox="true" width="50" sortable="true">多选框</th>
-			<th field="name" width="50" sortable="true">名称</th>
+			<th field="num" width="50" sortable="true">编号</th>
 			<shiro:hasPermission name="showRealNameColumn">
-			<th field="realName" width="50" sortable="true">真实姓名</th>
+			<th field="location" width="50" sortable="true">地址</th>
 			</shiro:hasPermission>
-			<th field="status" width="50" formatter="sysUser.formatStatus"
-				sortable="true">状态</th>
-			<th field="roleNames" width="50" formatter="sysUser.formatRoles">角色</th>
 		</tr>
 	</thead>
 </table>
 <div id="sysUserToolbar">
 	<div>
-		<span>用户名:</span> <input name="name" id="sysUserName" class="easyui-textbox" />
-		<span>真实姓名:</span> <input name="realName" id="sysRealName" class="easyui-textbox" />
-		<span>状态:</span> <select name="status" class="easyui-combobox"
-			id="sysUserStatus" style="width:90px;"
-			data-options="editable:false,panelHeight:'auto'">
-			<option value="">--全部--</option>
-			<option value="0">正常</option>
-			<option value="1">禁用</option>
-		</select> <a class="easyui-linkbutton" iconCls="icon-search" plain="true"
+		<span>编号:</span> <input name="name" id="num" class="easyui-textbox" />
+		<span>地址:</span> <input name="realName" id="location" class="easyui-textbox" />
+		<a class="easyui-linkbutton" iconCls="icon-search" plain="true"
 			onclick="sysUser.doSearch()"><s:message code="label.search"></s:message></a>
 	</div>
 	<shiro:hasPermission name="sysUserAddBtn">
 	<a href="javascript:void(0)" class="easyui-linkbutton"
 		data-options="iconCls:'icon-add',plain:true" onclick="sysUser.toAdd()">
-		添加用户</a>
+		添加楼宇</a>
 	</shiro:hasPermission>
 		
 		<shiro:hasPermission name="sysUserUpdateBtn">
 	<a href="javascript:void(0)" class="easyui-linkbutton"
 		data-options="iconCls:'icon-edit',plain:true"
-		onclick="sysUser.toEdit()">修改用户</a> 
+		onclick="sysUser.toEdit()">修改楼宇</a>
 	</shiro:hasPermission>
 		
 		<shiro:hasPermission name="sysUserDelBtn">
 		<a class="easyui-linkbutton"
-		iconCls="icon-remove" plain="true" onclick="sysUser.toDelete()">删除用户</a>
+		iconCls="icon-remove" plain="true" onclick="sysUser.toDelete()">删除楼宇</a>
 </shiro:hasPermission>
 <%-- grid右键菜单 --%>
 <div id="sysUserContextMenu" class="easyui-menu" style="width:120px;">
@@ -244,5 +235,5 @@
 </div>
 
 <%-- 3. 包含的Dialog页面等其他内容 --%>
-<%@ include file="../../dialog/sys/sysUserAdd.jsp"%>
-<%@ include file="../../dialog/sys/sysUserEdit.jsp"%>
+<%@ include file="../../dialog/building/buildingAdd.jsp"%>
+<%@ include file="../../dialog/building/buildingEdit.jsp"%>

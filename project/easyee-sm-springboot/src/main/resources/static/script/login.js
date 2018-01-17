@@ -1,3 +1,4 @@
+
 $(function() {
 	/**
 	 * EasyUI初始化
@@ -42,7 +43,7 @@ $(function() {
 	 * 登录检测和提交
 	 */
 	$("#loginBtn").on("click",function(){
-		
+
 		if(uiEx.validate("#loginForm")){
 			var vc=$("#captcha");
 			// 是否开启验证码

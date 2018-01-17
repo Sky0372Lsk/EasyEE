@@ -182,7 +182,7 @@ String basePath = request.getScheme()+"://"+request.getServerName()+":"+request.
 	<div data-options="region:'south',split:false"
 		style="height:30px;line-height: 30px;text-align: center;">
 		
-		© 2012 - 2099 Ray <a href="http://easyproject.cn/"
+		© 2012 - 2018 Ray <a href="http://easyproject.cn/"
 					style="color: #8EBB31;font-weight: bold;text-decoration: underline;">EasyProject</a>
 		联系、反馈、定制、培训 (Contact, Feedback, Custom, Train) Email：<a
 					href="mailto:inthinkcolor@gmail.com">inthinkcolor@gmail.com</a>
